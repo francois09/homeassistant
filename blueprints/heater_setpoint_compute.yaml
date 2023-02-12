@@ -2,7 +2,7 @@ blueprint:
   name: Room heating setpoint compute
   description: Compute heating setpoint based on planning °C, Confort & Eco °C and manually set °C
   domain: automation
-  # source_url: https://github.com/francois09/homeassistant/blueprints/heater_setpoint_compute.yaml
+  source_url: https://github.com/francois09/homeassistant/blueprints/heater_setpoint_compute.yaml
   input:
     climate_valve:
       name: Climate valve

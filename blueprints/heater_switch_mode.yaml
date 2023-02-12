@@ -2,7 +2,7 @@ blueprint:
   name: Room heating mode switching
   description: React to manual or automatic setup on thermostatic valve
   domain: automation
-  # source_url: https://github.com/francois09/homeassistant/blueprints/heater_switch_mode.yaml
+  source_url: https://github.com/francois09/homeassistant/blueprints/heater_switch_mode.yaml
   input:
     climate_valve:
       name: Climate valve
