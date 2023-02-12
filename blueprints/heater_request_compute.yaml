@@ -36,7 +36,6 @@ variables:
 trigger:
 - platform: state
   entity_id: !input current_temp
-  attribute: temperature
 - platform: state
   entity_id: !input selected_temp
 
