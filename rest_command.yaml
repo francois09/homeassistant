@@ -1,0 +1,62 @@
+mopidy_jukebox_play:
+  url: http://jukebox.tourde.home:6680/mopidy/rpc
+  method: POST
+  headers:
+    Content-Type: application/json
+  payload: '{ "jsonrpc": "2.0", "id": 1, "method": "core.playback.play" }'
+
+mopidy_jukebox_pause:
+  url: http://jukebox.tourde.home:6680/mopidy/rpc
+  method: POST
+  headers:
+    Content-Type: application/json
+  payload: '{ "jsonrpc": "2.0", "id": 1, "method": "core.playback.pause" }'
+
+mopidy_jukebox_resume:
+  url: http://jukebox.tourde.home:6680/mopidy/rpc
+  method: POST
+  headers:
+    Content-Type: application/json
+  payload: '{ "jsonrpc": "2.0", "id": 1, "method": "core.playback.resume" }'
+
+mopidy_jukebox_next:
+  url: http://jukebox.tourde.home:6680/mopidy/rpc
+  method: POST
+  headers:
+    Content-Type: application/json
+  payload: '{ "jsonrpc": "2.0", "id": 1, "method": "core.playback.next" }'
+
+mopidy_jukebox_previous:
+  url: http://jukebox.tourde.home:6680/mopidy/rpc
+  method: POST
+  headers:
+    Content-Type: application/json
+  payload: '{ "jsonrpc": "2.0", "id": 1, "method": "core.playback.previous" }'
+
+mopidy_jukebox_france_inter:
+  url: http://jukebox.tourde.home:6680/mopidy/rpc
+  method: POST
+  headers:
+    Content-Type: application/json
+  payload: '{ "jsonrpc": "2.0", "id": 1, "method": "core.tracklist.add", "params" : {"uris": ["tunein:station:s24875"], "at_position": 1 } }'
+
+mopidy_jukebox_france_info:
+  url: http://jukebox.tourde.home:6680/mopidy/rpc
+  method: POST
+  headers:
+    Content-Type: application/json
+  payload: '{ "jsonrpc": "2.0", "id": 1, "method": "core.tracklist.add", "params" : {"uris": ["tunein:station:s9948"], "at_position": 1 } }'
+
+mopidy_jukebox_increase_volume:
+  url: http://jukebox.tourde.home:6680/mopidy/rpc
+  method: POST
+  headers:
+    Content-Type: application/json
+  payload: '{ "jsonrpc": "2.0", "id": 1, "method": "core.mixer.set_volume", "params" : {"volume": {{ states.sensor.mopidy_volume.state|int + (5 if (states.sensor.mopidy_volume.state|int > 10) else 1) }} } }'
+
+mopidy_jukebox_decrease_volume:
+  url: http://jukebox.tourde.home:6680/mopidy/rpc
+  method: POST
+  headers:
+    Content-Type: application/json
+  payload: '{ "jsonrpc": "2.0", "id": 1, "method": "core.mixer.set_volume", "params" : {"volume": {{ states.sensor.mopidy_volume.state|int - (5 if (states.sensor.mopidy_volume.state|int > 10) else 1) }} } }'

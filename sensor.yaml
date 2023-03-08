@@ -1,0 +1,79 @@
+- platform: rest
+  name: "Mopidy playing status"
+  unique_id: mopidy_jukebox_playback_get_state
+  resource: http://jukebox.tourde.home:6680/mopidy/rpc
+  method: POST
+  headers:
+    Content-Type: application/json
+  payload: '{ "jsonrpc": "2.0", "id": 1, "method": "core.playback.get_state" }'
+  json_attributes_path: "$"
+  value_template: "{{ value_json.result }}"
+  scan_interval: 600
+
+- platform: rest
+  name: "Mopidy volume"
+  unique_id: mopidy_jukebox_playback_get_volume
+  resource: http://jukebox.tourde.home:6680/mopidy/rpc
+  method: POST
+  headers:
+    Content-Type: application/json
+  payload: '{ "jsonrpc": "2.0", "id": 1, "method": "core.mixer.get_volume" }'
+  json_attributes_path: "$"
+  value_template: "{{ value_json.result }}"
+  scan_interval: 600
+
+- platform: template
+  sensors:
+    temperature_valve_chambre_sud:
+      unique_id: temperature_valve_chambre_sud
+      friendly_name: "Température valve chambre sud"
+      value_template: "{{ state_attr('climate.thermostat_chambre_sud', 'current_temperature') }}"
+      unit_of_measurement: "°C"
+
+- platform: template
+  sensors:
+    temperature_valve_salle_a_manger:
+      unique_id: temperature_valve_salle_a_manger
+      friendly_name: "Température valve salle à manger"
+      value_template: "{{ state_attr('climate.thermostat_salle_a_manger', 'current_temperature') }}"
+      unit_of_measurement: "°C"
+
+- platform: template
+  sensors:
+    temperature_valve_entree:
+      unique_id: temperature_valve_entree
+      friendly_name: "Température valve entrée"
+      value_template: "{{ state_attr('climate.thermostat_entree', 'current_temperature') }}"
+      unit_of_measurement: "°C"
+
+- platform: template
+  sensors:
+    temperature_valve_chambre_principale:
+      unique_id: temperature_valve_chambre_principale
+      friendly_name: "Température valve Chambre principale"
+      value_template: "{{ state_attr('climate.thermostat_chambre_principale', 'current_temperature') }}"
+      unit_of_measurement: "°C"
+
+- platform: template
+  sensors:
+    temperature_valve_salon:
+      unique_id: temperature_valve_salon
+      friendly_name: "Température valve Salon"
+      value_template: "{{ state_attr('climate.thermostat_salon', 'current_temperature') }}"
+      unit_of_measurement: "°C"
+
+- platform: template
+  sensors:
+    temperature_valve_chambre_nord:
+      unique_id: temperature_valve_chambre_nord
+      friendly_name: "Température valve Chambre nord"
+      value_template: "{{ state_attr('climate.thermostat_chambre_nord', 'current_temperature') }}"
+      unit_of_measurement: "°C"
+
+- platform: template
+  sensors:
+    temperature_valve_degagement:
+      unique_id: temperature_valve_degagement
+      friendly_name: "Température valve Dégagement"
+      value_template: "{{ state_attr('climate.thermostat_degagement', 'current_temperature') }}"
+      unit_of_measurement: "°C"
