@@ -86,7 +86,7 @@ action:
     - delay:
         hours: 0
         minutes: 0
-        seconds: 2
+        seconds: 10
         milliseconds: 0
     - service: input_boolean.turn_off
       data: {}
@@ -118,7 +118,7 @@ action:
     - delay:
         hours: 0
         minutes: 0
-        seconds: 2
+        seconds: 10
         milliseconds: 0
     - service: input_boolean.turn_off
       data: {}
