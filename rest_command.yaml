@@ -47,6 +47,13 @@ mopidy_jukebox_france_info:
     Content-Type: application/json
   payload: '{ "jsonrpc": "2.0", "id": 1, "method": "core.tracklist.add", "params" : {"uris": ["tunein:station:s9948"], "at_position": 1 } }'
 
+mopidy_jukebox_fip:
+  url: http://jukebox.tourde.home:6680/mopidy/rpc
+  method: POST
+  headers:
+    Content-Type: application/json
+  payload: '{ "jsonrpc": "2.0", "id": 1, "method": "core.tracklist.add", "params" : {"uris": ["tunein:station:s15200"], "at_position": 1 } }'
+
 mopidy_jukebox_increase_volume:
   url: http://jukebox.tourde.home:6680/mopidy/rpc
   method: POST
