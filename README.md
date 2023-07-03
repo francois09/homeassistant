@@ -1,19 +1,25 @@
 # homeassistant
 
-This repository contains for now only blueprints for managing heater system
+This repository contains blueprints for managing heater system, and parts of configuration yaml files
 
 ## Principle
 
 1. Each room is autonomous, and have helpers for their properties
 2. Each room should have a climate valve, and a T° sensor
+3. A global blueprint is in charge of collecting rooms needs to decide to start heater/climate
 
 ## How it works
 
 Based on triggers, each room will compute the T° setpoint, and if necessary activate a helper
 saying it needs heating.
 
-Another automation (not included here for now), will decide to start or stop the heating system
-if rooms need it or no.
+Another automation will decide to start or stop the heating system if rooms need it or no.
+
+### Heater start/stop global script
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Ffrancois09%2Fhomeassistant%2Fblueprints%2Fheater_one_need.yaml)
+
+This blueprint is the global on/off heating system. It collects every heater requests from rooms, and decide if home heater should be started or not.
 
 ### Heater request compute
 
