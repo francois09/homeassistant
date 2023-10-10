@@ -1,3 +1,7 @@
+# NO MORE USED
+
+This repo is replaced by [HA_blueprints](https://github.com/francois09/HA_blueprints) for the public part, and [HA_config](https://github.com/francois09/HA_config) for the private config part.
+
 # homeassistant
 
 This repository contains blueprints for managing heater system, and parts of configuration yaml files
